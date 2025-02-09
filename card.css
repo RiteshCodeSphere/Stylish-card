@@ -1,0 +1,87 @@
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #13a9cf;
+}
+
+.box {
+    width: 300px;
+    height: 400px;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 2px 2px 10px gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.waveOne,
+.waveTwo,
+.waveThird {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    height: 500px;
+    margin-left: -250px;
+    margin-top: -250px;
+    border-radius: 50%;
+    transform-origin: center;
+}
+
+.waveOne {
+    opacity: 0.4;
+    background: rgb(0, 255, 68);
+    animation: drift 3s infinite linear;
+}
+
+.waveTwo {
+    opacity: 0.1;
+    background: yellow;
+    animation: drift 7s infinite linear;
+}
+
+.waveThird {
+    background: rgba(139, 228, 5, 0.3);
+    animation: drift 5s infinite linear;
+}
+
+.box:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(205, 61, 109, 1), rgba(104, 176, 248, 0.5), rgba(255, 255, 255, 0.5));
+    z-index: 11;
+    transform: translate3d(0, 0, 0);
+}
+
+.blinking-text {
+    position: absolute;
+    font-size: 18px;
+    font-weight: bold;
+    color: blue;
+    z-index: 12;
+    animation: colorBlink 1s infinite alternate;
+}
+
+@keyframes colorBlink {
+    0% { color: blue; }
+    50% { color: rgb(255, 196, 0); }
+    100% { color: rgb(234, 0, 255); }
+}
+
+@keyframes drift {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
